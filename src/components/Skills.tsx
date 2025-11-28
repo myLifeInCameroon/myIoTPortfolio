@@ -5,11 +5,11 @@ const Skills = () => {
   const skillCategories = [
     {
       category: "Hardware & Embedded",
-      skills: ["Arduino", "Raspberry Pi", "ESP32/ESP8266", "STM32", "Nordic nRF", "PCB Design", "Soldering"]
+      skills: ["Arduino", "Raspberry Pi", "ESP32/ESP8266", "STM32", "PCB Design", "Soldering"]
     },
     {
       category: "Protocols & Communication",
-      skills: ["MQTT", "CoAP", "HTTP/REST", "WebSocket", "LoRaWAN", "Zigbee", "BLE", "WiFi", "Cellular IoT"]
+      skills: ["MQTT", "HTTP/REST", "WebSocket", "LoRa", "BLE", "WiFi", "Cellular IoT"]
     },
     {
       category: "Programming Languages",
@@ -17,15 +17,15 @@ const Skills = () => {
     },
     {
       category: "Platforms & Cloud",
-      skills: ["AWS IoT", "Azure IoT", "Google Cloud IoT", "ThingsBoard", "Node-RED", "Docker", "Kubernetes"]
+      skills: ["AWS IoT", "Arduino Cloud", "The Things Network", "Node-RED", "Firebase" ]
     },
     {
       category: "Data & Analytics",
-      skills: ["InfluxDB", "MongoDB", "PostgreSQL", "Grafana", "TensorFlow", "Time-series Analysis"]
+      skills: ["SQLite", "Kibana", "TensorFlow", "Time-series Analysis"]
     },
     {
       category: "Web & Mobile",
-      skills: ["React", "Vue.js", "React Native", "Node.js", "Express", "FastAPI"]
+      skills: ["React", "Next.js", "Flutter", "FastAPI"]
     }
   ];
 

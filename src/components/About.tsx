@@ -7,7 +7,7 @@ const About = () => {
     {
       icon: Cpu,
       title: "Embedded Systems",
-      description: "Expert in microcontroller programming and hardware integration"
+      description: "Senior Developer in microcontroller programming and hardware integration"
     },
     {
       icon: Wifi,
@@ -17,7 +17,7 @@ const About = () => {
     {
       icon: Code2,
       title: "Full-Stack IoT",
-      description: "From firmware to cloud, building complete solutions"
+      description: "From firmware to cloud and mobile, building complete solutions"
     }
   ];
 
@@ -54,7 +54,9 @@ const About = () => {
           <div className="flex flex-col md:flex-row gap-8 items-start">
             <div className="flex-shrink-0">
               <Avatar className="w-32 h-32 md:w-40 md:h-40 border-4 border-primary/20">
-                <AvatarImage src="/placeholder.svg" alt="Profile" />
+                <AvatarImage 
+                  src="/karolKonarskiPic.jpg" 
+                  alt="Karol Konarski" />
                 <AvatarFallback className="text-2xl bg-primary/10 text-primary">IoT</AvatarFallback>
               </Avatar>
             </div>
@@ -63,7 +65,7 @@ const About = () => {
                 Hi, I'm an IoT developer with a passion for building intelligent, connected systems. My journey began with a fascination for how everyday objects could become smarter through technology. From my early days tinkering with Arduino boards to now architecting enterprise-level IoT solutions, I've maintained that same curiosity and drive to innovate.
               </p>
               <p className="text-lg leading-relaxed mb-4">
-                With over 5 years of experience in IoT development, I specialize in creating intelligent systems that connect the physical and digital worlds. My expertise spans from low-level embedded programming to cloud-based architectures, with a strong foundation in electronics and computer engineering.
+                With over 5 years of experience in IoT development, I specialize in creating intelligent systems that connect the physical and digital worlds. My expertise spans from low-level embedded programming to cloud-based architectures, with a strong foundation in electrical and electronics engineering.
               </p>
               <p className="text-lg leading-relaxed">
                 I'm passionate about solving complex problems through innovative technology solutions, whether it's optimizing sensor networks, developing real-time data pipelines, or building user-friendly interfaces for connected devices. When I'm not coding, you'll find me exploring emerging IoT trends or mentoring aspiring developers in the field.

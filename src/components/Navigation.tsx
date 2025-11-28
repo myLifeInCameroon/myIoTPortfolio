@@ -24,7 +24,6 @@ const Navigation = () => {
     { label: "Journey", target: "timeline" },
     { label: "Projects", target: "projects" },
     { label: "Skills", target: "skills" },
-    { label: "Awards", target: "blog" },
     { label: "Contact", target: "contact" }
   ];
 
@@ -40,7 +39,7 @@ const Navigation = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="text-2xl font-bold gradient-text hover:opacity-80 transition-opacity"
           >
-            IoT.Dev
+            Karol's Portfolio
           </button>
 
           {/* Desktop Navigation */}

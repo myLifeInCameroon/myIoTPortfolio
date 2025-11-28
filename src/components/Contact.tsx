@@ -5,6 +5,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
+import { set } from "date-fns";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -14,20 +16,44 @@ const Contact = () => {
     message: ""
   });
 
+  const [isSending, setIsSending] = useState(false);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    setFormData({ name: "", email: "", message: "" });
+    const SERVICE_ID = "service_b5h9308";
+    const TEMPLATE_ID = "template_61n13ey";
+    const PUBLIC_KEY = "m-uVBTyj2Yp3MwJZ3";
+
+    setIsSending(true);
+    emailjs.send(
+      SERVICE_ID,
+      TEMPLATE_ID,
+      {
+        from_name: formData.name,
+        reply_to: formData.email,
+        message: formData.message
+      },
+      PUBLIC_KEY
+    )
+    .then(() => {
+      toast({
+        title: "Message Sent",
+        description: "Thank you for reaching out! I'll get back to you soon.",
+      });
+      setFormData({ name: "", email: "", message: "" });
+    }).catch(() => {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again later.",
+      });
+    }).finally(() => setIsSending(false));
   };
 
   const socialLinks = [
-    { icon: Github, label: "GitHub", href: "#" },
-    { icon: Linkedin, label: "LinkedIn", href: "#" },
-    { icon: Twitter, label: "Twitter", href: "#" },
-    { icon: Mail, label: "Email", href: "mailto:contact@example.com" }
+    { icon: Github, label: "GitHub", href: "https://github.com/karlz-t" },
+    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/karol-charles-konarski-a4252a199" },
+    { icon: Twitter, label: "Twitter", href: "https://x.com/Karol_CharlesK" },
+    { icon: Mail, label: "Email", href: "mailto:kkonarski42@gmail.com" }
   ];
 
   return (
@@ -45,6 +71,7 @@ const Contact = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <Input
+                name="from_name"
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -54,6 +81,7 @@ const Contact = () => {
             </div>
             <div>
               <Input
+                name="reply_to"
                 type="email"
                 placeholder="Your Email"
                 value={formData.email}
@@ -64,6 +92,7 @@ const Contact = () => {
             </div>
             <div>
               <Textarea
+                name="message"
                 placeholder="Your Message"
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -76,8 +105,9 @@ const Contact = () => {
               type="submit" 
               size="lg"
               className="w-full bg-primary hover:bg-primary/90 text-primary-foreground border-glow"
+              disabled={isSending}
             >
-              Send Message
+              {isSending ? "Sending..." : "Send Message"}
             </Button>
           </form>
         </Card>
@@ -92,7 +122,10 @@ const Contact = () => {
               asChild
             >
               <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
-                <social.icon className="h-5 w-5" />
+                {(() => {
+                  const IconComp = social.icon;
+                  return <IconComp className="h-5 w-5" />;
+                })()}
               </a>
             </Button>
           ))}

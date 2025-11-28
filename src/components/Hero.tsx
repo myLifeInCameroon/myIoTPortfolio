@@ -30,6 +30,8 @@ const Hero = () => {
           <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
             Building the{" "}
             <span className="gradient-text">Connected Future</span>
+            {" "}with{" "}
+            <span className="gradient-text">Karol</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
             IoT Developer specializing in smart solutions, embedded systems, and seamless hardware-software integration.
@@ -47,7 +49,14 @@ const Hero = () => {
               size="lg" 
               variant="outline"
               className="px-8 py-6 text-lg border-primary/30 hover:border-primary hover:bg-primary/10"
-              onClick={() => scrollToSection('contact')}
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/Karol_Konarski_CV.pdf';
+                link.download = 'Karol_IoT_Developer_CV.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
             >
               <Download className="mr-2 h-5 w-5" />
               Download CV
