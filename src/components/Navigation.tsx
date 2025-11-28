@@ -21,6 +21,7 @@ const Navigation = () => {
 
   const navLinks = [
     { label: "About", target: "about" },
+    { label: "Journey", target: "timeline" },
     { label: "Projects", target: "projects" },
     { label: "Skills", target: "skills" },
     { label: "Awards", target: "blog" },
